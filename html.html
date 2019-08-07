@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="resources/css/ext-all.css" />
+    <script type="text/javascript" src="ext-base.js"></script>
+    <script type="text/javascript" src="ext-all.js"></script>
+    <script>
+        Ext.onReady(function() {
+            var tabPanel = new Ext.TabPanel({
+                renderTo: Ext.getBody(),
+                style:'position:absolute;',
+                height: 50,
+                width:700,
+                activeTab:'tabA',
+                pageY:100,
+                pageX:500,
+                plain:true,
+                items:[{
+                    id:'tabA',
+                    title: '国内版',
+                    items:[{
+                         xtype:'trigger',
+                         triggerClass:'x-form-search-trigger',
+                         width:700
+                    }
+                    ]
+                },{
+                    id:'tabB',
+                    title: '国际版',
+                    items:[{
+                        xtype:'trigger',
+                        triggerClass:'x-form-search-trigger',
+                        width:700
+                    },
+                    ]
+                }]
+            });
+        });
+    </script>
+    <style>
+        body{
+            background-color: #1b376c;
+        }
+        .x-tab-strip span .x-tab-strip-text {
+            font: normal 14px tahoma, arial, helvetica;
+        }
+    </style>
+</head>
+<body>
+<div id="test"></div>
+</body>
+</html>
