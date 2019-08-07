@@ -8,35 +8,57 @@
     <script type="text/javascript" src="ext-all.js"></script>
     <script>
         Ext.onReady(function() {
-            var tabPanel = new Ext.TabPanel({
-                renderTo: Ext.getBody(),
-                style:'position:absolute;',
-                height: 50,
-                width:700,
-                activeTab:'tabA',
-                pageY:100,
-                pageX:500,
-                plain:true,
+            var container = new Ext.Container({
+                renderTo: 'test',
+                layout: 'table',
+                layoutConfig: {
+                    columns: 3
+                },
                 items:[{
-                    id:'tabA',
-                    title: '国内版',
+                    colspan: 3,
+                    width: 500,
+                    layout: 'hbox',
+                    layoutConfig: {pack: 'center'},
+                    xtype: 'container',
                     items:[{
-                         xtype:'trigger',
-                         triggerClass:'x-form-search-trigger',
-                         width:700
-                    }
-                    ]
-                },{
-                    id:'tabB',
-                    title: '国际版',
-                    items:[{
-                        xtype:'trigger',
-                        triggerClass:'x-form-search-trigger',
-                        width:700
-                    },
-                    ]
-                }]
-            });
+                        xtype: 'box',
+                        height: 100,
+                        autoEl: {
+                            tag: 'img',
+                            src: 'bing.png'
+                        }
+                    }]
+                },
+                    {
+                        xtype:'tabpanel',
+                        style:'position:absolute;',
+                        height: 50,
+                        width:700,
+                        activeTab:'tabA',
+                        pageY:20,
+                        pageX:500,
+                        plain:true,
+                        items:[{
+                            id:'tabA',
+                            title: '国内版',
+                            items:[{
+                                xtype:'trigger',
+                                triggerClass:'x-form-search-trigger',
+                                width:700
+                            }
+                            ]
+                        },{
+                            id:'tabB',
+                            title: '国际版',
+                            items:[{
+                                xtype:'trigger',
+                                triggerClass:'x-form-search-trigger',
+                                width:700
+                            },
+                            ]
+                        }]
+                    }]
+            })
         });
     </script>
     <style>
